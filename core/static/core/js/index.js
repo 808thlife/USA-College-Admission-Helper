@@ -72,11 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h5 class="card-header">${collegeName}</h5>
                     <div class="card-body">
                       <h5 class="card-title">Region: ${collegeInfo["Region"]}, City Type: ${collegeInfo["Geography"]}</h5>
-                      <p class="card-text">Admission Rate${collegeInfo["AdmissionRate"]}</p>
+                      <p class="card-text">Admission Rate: ${collegeInfo["AdmissionRate"]}%</p>
                       <p class="card-text">AVG SAT Scores: ${collegeInfo["SATAverage"]}, ACT Median: ${collegeInfo["ACTMedian"]} </p>
                       <p class="card-text">Predominant Degree - ${collegeInfo["PredominantDegree"]}, Highest degree - ${collegeInfo["HighestDegree"]}</p>
                       <p class="card-text">Funding Model: ${collegeInfo["FundingModel"]} </p>
-                      <p class="card-text">Average Cost of the education: ${collegeInfo["AverageCost"]} </p>
+                      <p class="card-text">Average Cost of the education: ${collegeInfo["AverageCost"]}$ </p>
                     </div>
                   </div>
                     `
