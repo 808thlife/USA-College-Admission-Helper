@@ -31,7 +31,7 @@ def load_data(filename):
 
 colleges = load_data("college.csv")
 
-def filter_colleges(colleges, geography=None, admission_rate=None, average_cost=None, funding_model=None, predominant_degree=None, highest_degree=None, region=None, act_median=None, sat_average=None):
+def filter_colleges(geography=None, admission_rate=None, average_cost=None, funding_model=None, predominant_degree=None, highest_degree=None, region=None, act_median=None, sat_average=None):
     """
     Filter colleges based on given criteria.
     """
@@ -41,7 +41,7 @@ def filter_colleges(colleges, geography=None, admission_rate=None, average_cost=
         # Check if college matches each provided criterion
         if (geography is None or college_info["Geography"] == geography) and \
            (admission_rate is None or college_info["AdmissionRate"] == admission_rate) and \
-           (average_cost is None or college_info["AverageCost"] == average_cost) and \
+           (average_cost is None or int(college_info["AverageCost"]) < average_cost) and \
            (funding_model is None or college_info["FundingModel"] == funding_model) and \
            (predominant_degree is None or college_info["PredominantDegree"] == predominant_degree) and \
            (highest_degree is None or college_info["HighestDegree"] == highest_degree) and \
@@ -53,5 +53,15 @@ def filter_colleges(colleges, geography=None, admission_rate=None, average_cost=
     return filtered_colleges
 
 # Example usage:
-filtered = filter_colleges(colleges, region='Southeast', funding_model="Private")
+# filtered = filter_colleges(region='Southeast', funding_model="Private", average_cost= 20000)
+# print(filtered)
+
+def populate_rows(): # in order to pass it
+    regions = set()
+    geography = set()
+    for college_name, college_info in colleges.items():
+        regions.add(college_info["Region"])
+        geography.add(college_info["Geography"])
+
+    return [regions, geography]
 
